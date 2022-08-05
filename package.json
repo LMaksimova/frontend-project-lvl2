@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/LyudmilaMaksimova/frontend-project-lvl2/issues"
   },
-  "homepage": "https://github.com/LyudmilaMaksimova/frontend-project-lvl2#readme"
+  "homepage": "https://github.com/LyudmilaMaksimova/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^9.4.0",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "lodash": "^4.17.21"
+  }
 }
