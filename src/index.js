@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-import { readFileSync } from 'fs';
+import { read, readFileSync } from 'fs';
+import path from 'path';
 import _ from 'lodash';
 
 const difference = (obj1, obj2) => {
@@ -24,13 +25,14 @@ const data = Object.entries(result)
 };
 
 const generateDiff = (filepath1, filepath2) => {
-  const getData = (path) => {
-    const dataParse = JSON.parse(readFileSync(path, 'utf-8'));
-    return dataParse;
+  const readFile = (path1) => {
+    const fullPath = path.resolve(process.cwd(), path1);
+    const data = JSON.parse(readFileSync(fullPath, 'utf-8'));
+    return data;
   };
 
-  const data1 = getData(filepath1);
-  const data2 = getData(filepath2);
+  const data1 = readFile(filepath1);
+  const data2 = readFile(filepath2);
 
   return difference(data1, data2);
 };
