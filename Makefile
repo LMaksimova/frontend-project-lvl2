@@ -14,7 +14,7 @@ test-coverage:
 	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
 
 lint:
-	npx eslint .
+	npx eslint
 
 publish:
 	npm publish
