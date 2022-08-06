@@ -1,11 +1,22 @@
-install:
-    install ci
+install: install-deps
+	npx simple-git-hooks
 
-publish: 
-    npm.publish --dry-run
+gendiff:
+	bin/gendiff.js
 
-gendiff: 
-    node bin/gendiff.js
+install-deps:
+	npm ci
 
-lint: 
-    npx eslint
+test:
+	NODE_OPTIONS=--experimental-vm-modules npx jest 
+
+test-coverage:
+	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+
+lint:
+	npx eslint .
+
+publish:
+	npm publish
+
+.PHONY: test
