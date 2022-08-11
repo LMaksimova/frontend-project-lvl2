@@ -1,0 +1,21 @@
+on: 
+  - push
+  - pull_request
+
+env:
+  CI: true
+
+jobs: 
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with: 
+          node-version: '16.x'
+
+      - run: make setup
+      - run: make test
+      - run: make lint    
