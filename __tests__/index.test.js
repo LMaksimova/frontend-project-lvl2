@@ -10,10 +10,6 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 
-const file1 = '/home/lyudmila/frontend-project-lvl2/__fixtures__/file1.json';
-const file2 = '/home/lyudmila/frontend-project-lvl2/__fixtures__/file2.json';
-
-
 test('gendiff', () => {
-  expect(generateDiff(file1, file2)).toEqual(readFile('expected_file.json'));
+  expect(generateDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toEqual(readFile('expected_file.json'));
 });
